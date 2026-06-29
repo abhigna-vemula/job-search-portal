@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Account - Job Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+        <div class="nav-left">
+          <img src="logo.JPG" alt="Logo" class="nav-logo">
+          <h2>Job Portal</h2>
+        </div>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Jobs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="account.html">Account</a></li>
+          <li><a href="postjob.html" class="post-btn">Post Job</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <!-- Tabs -->
+  <div class="auth-tabs">
+    <button onclick="showLogin()" class="tab-btn active-tab" id="loginTab">Login</button>
+    <button onclick="showRegister()" class="tab-btn" id="registerTab">Register</button>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-section" class="auth-section">
+    <h2>Login</h2>
+    <form onsubmit="loginUser(event)">
+      <input type="email" placeholder="Email" required id="login-email" />
+      <input type="password" placeholder="Password" required id="login-password" />
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Register Form -->
+  <div id="register-section" class="auth-section" style="display: none;">
+    <h2>Register</h2>
+    <form onsubmit="registerUser(event)">
+      <input type="text" placeholder="Full Name" required id="reg-name" />
+      <input type="email" placeholder="Email" required id="reg-email" />
+      <input type="password" placeholder="Password" required id="reg-password" />
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+
+  <!-- JavaScript at the bottom of the body -->
+  <script>
+    function showLogin() {
+      document.getElementById("login-section").style.display = "block";
+      document.getElementById("register-section").style.display = "none";
+      document.getElementById("loginTab").classList.add("active-tab");
+      document.getElementById("registerTab").classList.remove("active-tab");
+    }
+
+    function showRegister() {
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("register-section").style.display = "block";
+      document.getElementById("loginTab").classList.remove("active-tab");
+      document.getElementById("registerTab").classList.add("active-tab");
+    }
+
+    function loginUser(event) {
+      event.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      alert("Logging in with:\nEmail: " + email + "\nPassword: " + password);
+    }
+
+    function registerUser(event) {
+      event.preventDefault();
+      const name = document.getElementById("reg-name").value;
+      const email = document.getElementById("reg-email").value;
+      const password = document.getElementById("reg-password").value;
+      alert("Registering:\nName: " + name + "\nEmail: " + email);
+    }
+  </script>
+</body>
+</html>
